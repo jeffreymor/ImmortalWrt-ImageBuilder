@@ -31,7 +31,9 @@
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-daed-zh-cn"
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-homeproxy-zh-cn"
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES xray-core sing-box hysteria luci-i18n-passwall-zh-cn"
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash"
+# 排除 PassWall 及其专属代理核心，保留 OpenClash 所需的 tproxy 组件
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-passwall -luci-i18n-passwall-zh-cn -xray-core -sing-box -hysteria -chinadns-ng -dns2socks -haproxy -ipt2socks -microsocks -shadowsocks-rust-sslocal -shadowsocks-rust-ssserver -simple-obfs-client -v2ray-plugin -geoview -kmod-nft-socket"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES bash kmod-nft-tproxy luci-app-openclash"
 # VPN
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-tailscale-community luci-i18n-tailscale-community-zh-cn"
 # 内网穿透
